@@ -3,8 +3,6 @@ Provides a WP Rest API endpoint for inviting users to your Slack channel.
 
 *__Note:__ This requires a [legacy token](https://api.slack.com/custom-integrations/legacy-tokens) to authenticate. The new type of token will not work.*
 
-**WORK IN PROGRESS**
-
 
 ## Setup
 
