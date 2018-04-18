@@ -50,7 +50,7 @@ Provides a WP Rest API endpoint for inviting users to your Slack channel.
 ### Statuses
 
 |Code|Status|Message|
-|--------|-------|--------|-----------|
+|----|------|-------|
 |`200`|`success`|An invitation to join the Slack workspace has been sent.|
 |`200`|`new_channel`|You have been added to a new channel in this workspace.|
 |`400`|`already_invited`|You've already been sent an invite. If you didn't receive it, please contact the workspace administrator.|
