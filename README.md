@@ -26,7 +26,7 @@ Provides a WP Rest API endpoint for inviting users to your Slack channel.
 |`email`|`some@email.com`|Required|The email address of the user to invite.|
 |`channels`|`12345,67890`|Optional|Any channels to add the user to, separated by a comma.|
 |`name`|`John`|Optional|If submitted, should be empty. This is a honeypot field, and if completed, indicates a bot filled out the form.|
-|`key` (random string)|`hghjkg1247`|Required|To secure your form, use a random string for the field `name` and `value`. These should match the `form_key` and `form_secret` values you used in the settings. Example: '<input type="hidden" name="abcd12345" value="efghijk67890">'|
+|`key` (random string)|`hghjkg1247`|Required|To secure your form, use a random string for the field `name` and `value`. These should match the `form_key` and `form_secret` values you used in the settings. Example: `<input type="hidden" name="abcd12345" value="efghijk67890">`|
 
 
 
