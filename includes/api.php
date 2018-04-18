@@ -32,8 +32,19 @@
 			), 400);
 		}
 
+		// Limit to EDD purchases only
+		if (in_array('purchase_required', $params) && $params['purchase_required'] === 'edd' && function_exists('edd_get_users_purchases')) {
+			if (empty(edd_get_users_purchases($params['email']))) {
+				return new WP_REST_Response(array(
+					'code' => 400,
+					'status' => 'purchase_required',
+					'message' => 'This Slack workspace is only available to customers.'
+				), 400);
+			}
+		}
+
 		// Check if channels specified
-		$channels = $params['channels'] && !empty($params['channels']) ? array('channels' => $params['channels']) : array();
+		$channels = in_array('channels', $params) && !empty($params['channels']) ? array('channels' => $params['channels']) : array();
 
 		// Invite purchaser to Slack
 		$slack = new Slack_Invite( $options['auth_token'], $options['domain_name'] );

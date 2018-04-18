@@ -27,6 +27,7 @@ Provides a WP Rest API endpoint for inviting users to your Slack channel.
 |`channels`|`12345,67890`|Optional|Any channels to add the user to, separated by a comma.|
 |`name`|`John`|Optional|If submitted, should be empty. This is a honeypot field, and if completed, indicates a bot filled out the form.|
 |`key` (random string)|`hghjkg1247`|Required|To secure your form, use a random string for the field `name` and `value`. These should match the `form_key` and `form_secret` values you used in the settings. Example: `<input type="hidden" name="abcd12345" value="efghijk67890">`|
+|`purchase_required`|`edd`|Optiona|If set to `edd`, the API will check that a product has been purchased from Easy Digital Downloads via the user's email address.|
 
 
 
@@ -56,6 +57,7 @@ Provides a WP Rest API endpoint for inviting users to your Slack channel.
 |`400`|`already_invited`|You've already been sent an invite. If you didn't receive it, please contact the workspace administrator.|
 |`400`|`already_in_team`|You're already a member of this Slack workspace.|
 |`400`|`invalid_email`|Please use a valid email address.|
+|`400`|`purchase_required`|This Slack workspace is only available to customers.|
 |`400`|`failed`|Unable to subscribe at this time. Please try again.|
 
 
