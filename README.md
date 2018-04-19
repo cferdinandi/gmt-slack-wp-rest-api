@@ -4,16 +4,22 @@ Provides a WP Rest API endpoint for inviting users to your Slack channel.
 *__Note:__ This requires a [legacy token](https://api.slack.com/custom-integrations/legacy-tokens) to authenticate. The new type of token will not work.*
 
 
-## Setup
+## Getting Started
 
 1. Install the plugin using the WordPress plugin installer.
 2. Configure your settings under `Settings > Slack API` in the WordPress Dashboard.
+	- **Team Name.** The prefix for your Slack workspace at slack.com. For example, in `https://js-apis.slack.com`, the teamname is `js-apis`.
+	- **Authorization Token.** Your authorization token from Slack. This must be a [legacy token](https://api.slack.com/custom-integrations/legacy-tokens) and not one of the new ones.
+	- **Form Key and Form Secret.** The name/value pair to include as parameters to verify the API call. Example: `abcd12345=efghijk67890`. [optional]
+	- **Whitelisted Domains.** If you'd like to only allow API calls from specific domains, add them here as a comma-separated list.
 3. Call the desired endpoint from your code.
 
 
-## Endpoints
+## Endpoint
 
-- **`<your-domain>/wp-json/gmt-slack/v1/invite`** - Invite someone to your Slack workspace.
+```http
+<your-domain>/wp-json/gmt-slack/v1/invite
+```
 
 
 

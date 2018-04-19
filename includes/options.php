@@ -53,6 +53,14 @@
 		<?php
 	}
 
+	function gmt_slack_api_settings_field_origin() {
+		$options = gmt_slack_api_get_theme_options();
+		?>
+		<input type="text" name="gmt_slack_api_theme_options[origin]" class="large-text" id="origin" value="<?php echo esc_attr( $options['origin'] ); ?>" />
+		<label class="description" for="origin"><?php _e( 'Whitelisted domain origins for the API (optional, comma-separated)', 'gmt_slack_api' ); ?></label>
+		<?php
+	}
+
 
 
 	/**
@@ -69,6 +77,7 @@
 			'auth_token' => '',
 			'form_key' => '',
 			'form_secret' => '',
+			'origin' => '',
 		);
 
 		$defaults = apply_filters( 'gmt_slack_api_default_theme_options', $defaults );
@@ -94,6 +103,9 @@
 
 		if ( isset( $input['form_secret'] ) && ! empty( $input['form_secret'] ) )
 			$output['form_secret'] = wp_filter_nohtml_kses( $input['form_secret'] );
+
+		if ( isset( $input['origin'] ) && ! empty( $input['origin'] ) )
+			$output['origin'] = wp_filter_nohtml_kses( str_replace(' ', '', $input['origin']) );
 
 		return apply_filters( 'gmt_slack_api_theme_options_validate', $output, $input );
 	}
@@ -154,6 +166,7 @@
 		add_settings_field( 'auth_token', __( 'Authorization Token', 'gmt_slack_api' ), 'gmt_slack_api_settings_field_auth_token', 'theme_options', 'general' );
 		add_settings_field( 'form_key', __( 'Form Key', 'gmt_slack_api' ), 'gmt_slack_api_settings_field_form_key', 'theme_options', 'general' );
 		add_settings_field( 'form_secret', __( 'Form Secret', 'gmt_slack_api' ), 'gmt_slack_api_settings_field_form_secret', 'theme_options', 'general' );
+		add_settings_field( 'origin', __( 'Whitelisted Domains', 'gmt_slack_api' ), 'gmt_slack_api_settings_field_origin', 'theme_options', 'general' );
 
 	}
 	add_action( 'admin_init', 'gmt_slack_api_theme_options_init' );

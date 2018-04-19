@@ -5,7 +5,7 @@
  * Plugin URI: https://github.com/cferdinandi/gmt-slack-wp-rest-api/
  * GitHub Plugin URI: https://github.com/cferdinandi/gmt-slack-wp-rest-api/
  * Description: Provides a WP Rest API endpoint for inviting users to your Slack channel.
- * Version: 0.1.0
+ * Version: 0.2.0
  * Author: Chris Ferdinandi
  * Author URI: http://gomakethings.com
  * License: GPLv3
