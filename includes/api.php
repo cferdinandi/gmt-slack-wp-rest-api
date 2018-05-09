@@ -56,7 +56,7 @@
 		}
 
 		// Check if channels specified
-		$channels = in_array('channels', $params) && !empty($params['channels']) ? array('channels' => $params['channels']) : array();
+		$channels = array_key_exists('channels', $params) && !empty($params['channels']) ? array('channels' => $params['channels']) : array();
 
 		// Invite purchaser to Slack
 		$slack = new Slack_Invite( $options['auth_token'], $options['domain_name'] );
