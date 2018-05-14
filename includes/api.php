@@ -96,8 +96,6 @@
 						'message' => 'You have been added to a new channel in this workspace.'
 					), 200);
 				}
-
-				return;
 			}
 
 			return new WP_REST_Response(array(
