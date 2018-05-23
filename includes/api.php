@@ -45,7 +45,7 @@
 		}
 
 		// Limit to EDD purchases only
-		if (in_array('purchase_required', $params) && $params['purchase_required'] === 'edd' && function_exists('edd_get_users_purchases')) {
+		if (array_key_exists('purchase_required', $params) && $params['purchase_required'] === 'edd' && function_exists('edd_get_users_purchases')) {
 			if (empty(edd_get_users_purchases($params['email']))) {
 				return new WP_REST_Response(array(
 					'code' => 400,
