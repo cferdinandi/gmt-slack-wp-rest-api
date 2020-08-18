@@ -118,6 +118,7 @@
 		register_rest_route('gmt-slack/v1', '/invite', array(
 			'methods' => 'POST',
 			'callback' => 'gmt_slack_api_invite',
+			'permission_callback' => '__return_true',
 		));
 	}
 	add_action('rest_api_init', 'gmt_slack_api_register_routes');
