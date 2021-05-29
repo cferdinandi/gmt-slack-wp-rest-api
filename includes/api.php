@@ -81,9 +81,10 @@
 		if ($invitation['error'] === 'already_in_team') {
 			if (!empty($channels)) {
 				$channels = explode(',', $channels['channels']);
+				$member = $slack->get_member( sanitize_email( $params['email'] ) );
 				$added_to_channels = true;
 				foreach ($channels as $channel) {
-					$add = $slack->add_to_group( sanitize_email( $params['email'] ), $channel );
+					$add = $slack->add_to_group( $member, $channel );
 					if ($add['ok'] === FALSE) {
 						$added_to_channels = false;
 					}

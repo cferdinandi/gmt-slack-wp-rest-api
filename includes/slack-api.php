@@ -97,13 +97,12 @@
 
 		/**
 		 * Add a member to a channel
-		 * @param  string $email   The member's email address
+		 * @param  string $member  The Slack member details
 		 * @param  string $channel The channel to add them to
 		 */
-		function add_to_group( $email, $channel ) {
-			$member = $this->get_member( $email );
+		function add_to_group( $member, $channel ) {
 			if (empty($member) || empty($member['id'])) return false;
-			return $this->make_request( 'groups.invite', array( 'channel' => $channel, 'user' => $member['id'] ) );
+			return $this->make_request( 'conversations.invite', array( 'channel' => $channel, 'users' => $member['id'] ) );
 		}
 
 		/**
